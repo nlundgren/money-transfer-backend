@@ -38,6 +38,7 @@ public class AccountService {
     public Account updateAccount(Account account) {
         Account existingAccount = repository.findById(account.getId()).orElse(null);
         existingAccount.setFirstName(account.getFirstName());
+        existingAccount.setLastName(account.getLastName());
         existingAccount.setBalance(account.getBalance());
         existingAccount.setType(account.getType());
         return repository.save(existingAccount);
