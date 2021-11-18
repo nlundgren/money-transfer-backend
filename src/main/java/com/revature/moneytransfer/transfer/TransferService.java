@@ -22,7 +22,7 @@ public class TransferService {
         return repository.findByLocator(name);
     }
 
-    public String cancelTransfer(int id) {
+    public String deleteTransfer(int id) {
         repository.deleteById(id);
         return "transfer removed !! " + id;
     }

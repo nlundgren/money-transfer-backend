@@ -27,7 +27,7 @@ public class AccountService {
     }
 
     public Account getAccountByName(String name) {
-        return repository.findByName(name);
+        return repository.findByLastName(name);
     }
 
     public String deleteAccount(int id) {

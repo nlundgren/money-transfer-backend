@@ -25,8 +25,8 @@ public class TransferController {
         return service.getTransferByLocator(locator);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String cancelTransfer(@PathVariable int id) {
-        return service.cancelTransfer(id);
+    @DeleteMapping("/deleteTransfer/{id}")
+    public String deleteTransfer(@PathVariable int id) {
+        return service.deleteTransfer(id);
     }
 }
