@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,4 +25,5 @@ public class Transfer {
     private double amount;
     private String concept;
     private String locator;
+
 }

@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin (origins = "*")
 public class AccountController {
 
     @Autowired
     private AccountService service;
+
 
     @PostMapping("/addAccount")
     public Account addAccount(@RequestBody Account account) {

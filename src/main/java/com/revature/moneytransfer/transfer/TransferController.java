@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin (origins = "*")
 @RestController
 public class TransferController {
 
@@ -20,9 +21,9 @@ public class TransferController {
         return service.getTransfers();
     }
 
-    @GetMapping("/transfer/{locator}")
-    public Transfer findTransferByLocator(@PathVariable String locator) {
-        return service.getTransferByLocator(locator);
+    @GetMapping("/transfer/{fromId}")
+    public List<Transfer> findByAccount(@PathVariable int fromId) {
+        return service.getTransfersByAccount(fromId);
     }
 
     @DeleteMapping("/deleteTransfer/{id}")
