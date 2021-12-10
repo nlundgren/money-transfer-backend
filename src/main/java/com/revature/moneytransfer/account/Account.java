@@ -21,6 +21,8 @@ public class Account {
     private int id;
     private String firstName;
     private String lastName;
-    private String type;
+    private String type = "customer";
     private double balance;
+    private String email;
+    private String password;
 }

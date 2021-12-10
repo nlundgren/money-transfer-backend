@@ -1,5 +1,6 @@
 package com.revature.moneytransfer.account;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +13,20 @@ public class AccountController {
     private AccountService service;
 
 
-    @PostMapping("/addAccount")
+    @PostMapping("/register")
     public Account addAccount(@RequestBody Account account) {
-        return service.saveAccount(account);
+        Account encryptedAccount= new Account();
+        encryptedAccount.setFirstName(account.getFirstName());
+        encryptedAccount.setLastName(account.getLastName());
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(account.getPassword());
+        encryptedAccount.setPassword(encodedPassword);
+
+        encryptedAccount.setEmail(account.getEmail());
+        encryptedAccount.setFirstName(account.getType());
+
+        return service.saveAccount(encryptedAccount);
     }
 
     @PostMapping("/addAccounts")
