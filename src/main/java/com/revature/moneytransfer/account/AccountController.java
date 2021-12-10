@@ -12,10 +12,10 @@ public class AccountController {
     @Autowired
     private AccountService service;
 
-
     @PostMapping("/register")
     public Account addAccount(@RequestBody Account account) {
         Account encryptedAccount= new Account();
+
         encryptedAccount.setFirstName(account.getFirstName());
         encryptedAccount.setLastName(account.getLastName());
 
@@ -25,8 +25,8 @@ public class AccountController {
 
         encryptedAccount.setEmail(account.getEmail());
         encryptedAccount.setFirstName(account.getType());
-
-        return service.saveAccount(encryptedAccount);
+        System.out.println(encryptedAccount);
+        return service.saveAccount(account);
     }
 
     @PostMapping("/addAccounts")
