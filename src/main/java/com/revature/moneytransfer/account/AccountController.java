@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin (origins = "*")
+@CrossOrigin (origins = "http://localhost:4200", maxAge = 30)
 public class AccountController {
 
     @Autowired
@@ -24,9 +24,9 @@ public class AccountController {
         encryptedAccount.setPassword(encodedPassword);
 
         encryptedAccount.setEmail(account.getEmail());
-        encryptedAccount.setFirstName(account.getType());
-        System.out.println(encryptedAccount);
-        return service.saveAccount(account);
+        encryptedAccount.setType(account.getType());
+
+        return service.saveAccount(encryptedAccount);
     }
 
     @PostMapping("/addAccounts")
