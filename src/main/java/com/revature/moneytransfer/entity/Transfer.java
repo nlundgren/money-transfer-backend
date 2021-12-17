@@ -1,4 +1,4 @@
-package com.revature.moneytransfer.transfer;
+package com.revature.moneytransfer.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

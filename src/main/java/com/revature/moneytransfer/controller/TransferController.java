@@ -1,17 +1,19 @@
-package com.revature.moneytransfer.transfer;
+package com.revature.moneytransfer.controller;
+import com.revature.moneytransfer.entity.Transfer;
+import com.revature.moneytransfer.service.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin (origins = "http://localhost:4200")
+@CrossOrigin (origins = "*")
 @RestController
 public class TransferController {
 
     @Autowired
     private TransferService service;
 
-    @PostMapping("/addTransfer")
+    @PostMapping("/transfer")
     public Transfer addTransfer(@RequestBody Transfer transfer) {
         return service.saveTransfer(transfer);
     }
@@ -23,7 +25,7 @@ public class TransferController {
 
     @GetMapping("/transfer/{fromId}")
     public List<Transfer> findByAccount(@PathVariable int fromId) {
-        return service.getTransfersByAccount(fromId);
+        return service.getTransfersByUser(fromId);
     }
 
     @DeleteMapping("/deleteTransfer/{id}")
